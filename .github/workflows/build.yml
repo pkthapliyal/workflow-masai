@@ -1,7 +1,12 @@
-on : push
+name: Print Node Version
+on: push
 jobs:
-    first-job:
-        runs-on: windows-latest
-        steps:
-            - run : node -v
-            - run : npm -v
+  print-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Print Node Version
+        run: node -v
